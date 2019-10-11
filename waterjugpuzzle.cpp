@@ -1,11 +1,11 @@
 /*******************************************************************************
  * Name        : waterjugpuzzle.cpp
  * Author      : Patrick Besser, Matthew Jacobsen
- * Date        : October 5, 2019 
+ * Date        : October 11, 2019 
  * Description : Solves the famous water jug puzzle using breadth-first search 
  * Pledge      : I pledge my honor that I have abided by the Stevens Honor System.
  ******************************************************************************/
-//test
+
 #include <iostream>
 #include <sstream>
 #include <vector>
