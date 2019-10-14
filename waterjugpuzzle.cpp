@@ -90,12 +90,12 @@ int main(int argc, char* const argv[]) { //MAIN METHOD
           return 1; //return integer
         }
     }
-    cA = atoi(argv[1]);
-    cB = atoi(argv[2]);
-    cC = atoi(argv[3]);
-    gA = atoi(argv[4]);
-    gB = atoi(argv[5]);
-    gC = atoi(argv[6]);
+    int cA = atoi(argv[1]);
+    int cB = atoi(argv[2]);
+    int cC = atoi(argv[3]);
+    int gA = atoi(argv[4]);
+    int gB = atoi(argv[5]);
+    int gC = atoi(argv[6]);
     
     istringstream iss; 
     for(int i=1;i<7){
