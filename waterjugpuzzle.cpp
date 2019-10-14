@@ -60,7 +60,7 @@ void bfs(int Ca, int Cb, int Cc, int Ga, int Gb, int Gc, int a, int b, int c){
 void waterjug(int c1, int c2, int c3,int g1,int g2,int g3){
 
 
-    
+     
 }
 
 
@@ -75,51 +75,105 @@ int main(int argc, char* const argv[]) { //MAIN METHOD
     // //if no: is |goal a,b,c| > |cap a,b,c| ?: if yes: error
     // //If no: is goal a + goal b + goal c + 
 
-    int compare1, compare2, compare3, compare4, compare5, compare6;
+    int compare;
 
     if (argc != 7) { //check for correct number of arguments
          cerr << "Usage: " << argv[0] << " <cap A> <cap B> <cap C> <goal A> <goal B> <goal C>"
               << endl; //print the corresponding error message
          return 1; //return integer to satasify the definition of the main
     }
-    //Is each argument an int?
-    // for(int i=1; i <= 5;i++){
-    //     iss.str(argv[i]);
-    //     if(!(iss >> compare1)){
-    //       cerr<< "Error: Invalid capacity '"<< argv[i] <<"' for jug A." <<endl; //print appropriate message
-    //       return 1; //return integer
-    //     }
+    Is each argument an int?
+    for(int i=1; i <= 5;i++){
+        iss.str(argv[i]);
+        if(!(iss >> compare1)){
+          cerr<< "Error: Invalid capacity '"<< argv[i] <<"' for jug A." <<endl; //print appropriate message
+          return 1; //return integer
+        }
+    }
+    cA = atoi(argv[1]);
+    cB = atoi(argv[2]);
+    cC = atoi(argv[3]);
+    gA = atoi(argv[4]);
+    gB = atoi(argv[5]);
+    gC = atoi(argv[6]);
+    
+    istringstream iss; 
+    for(int i=1;i<7){
+        iss.str(argv[i]); //define istringstream
+        if(i>=1 && i<=3){   // capacity cases
+            if(i==1){ //jug A
+                if(!(iss>>compare)){
+                cerr << "Error: Invalid capacity '" << argv[i] << "' for jug A." << endl;
+			    return 1;
+                }
+            }
+            if(i==2){//Jug B
+                if(!(iss>>compare)){
+                cerr << "Error: Invalid capacity '" << argv[i] << "' for jug B." << endl;
+			    return 1;
+                }
+            } 
+            if(i==3){//Jug C
+                if(!(iss>>compare)){
+                cerr << "Error: Invalid capacity '" << argv[i] << "' for jug C." << endl
+                return 1;
+                }
+            }
+            iss.clear();
+        }                
+         
+        if(i>3){//goal cases
+            if(i==4){ //jug A
+                if(!(iss>>compare)){
+                cerr << "Error: Invalid goal '" << argv[i] << "' for jug A." << endl;
+			    return 1;
+                }
+            }
+            if(i==5){//Jug B
+                if(!(iss>>compare)){
+                cerr << "Error: Invalid goal '" << argv[i] << "' for jug B." << endl;
+			    return 1;
+                }
+            } 
+            if(i==6){//Jug C
+                if(!(iss>>compare)){
+                cerr << "Error: Invalid goal '" << argv[i] << "' for jug C." << endl
+                return 1;
+                }
+            }
+            iss.clear();
+        } 
+    }
+    // istringstream iss(argv[1]);
+    //  if(!(iss >> compare1)){ //compares if the input is an integer 
+    //        cerr<< "Error: Invalid capacity '"<< argv[1] <<"' for jug A." <<endl; //print appropriate message
+    //   return 1; //return integer
     // }
-    istringstream iss(argv[1]);
-     if(!(iss >> compare1)){ //compares if the input is an integer 
-           cerr<< "Error: Invalid capacity '"<< argv[1] <<"' for jug A." <<endl; //print appropriate message
-      return 1; //return integer
-    }
-    istringstream iss(argv[2]);
-     if(!(iss >> compare2)){ //compares if the input is an integer 
-           cerr<< "Error: Invalid capacity '"<< argv[2] <<"' for jug B." <<endl; //print appropriate message
-      return 1; //return integer
-    }
-    istringstream iss(argv[3]);
-     if(!(iss >> compare3)){ //compares if the input is an integer 
-           cerr<< "Error: Invalid capacity '"<< argv[3] <<"' for jug C." <<endl; //print appropriate message
-      return 1; //return integer
-    }
-    istringstream iss(argv[4]);
-     if(!(iss >> compare4)){ //compares if the input is an integer 
-           cerr<< "Error: Invalid goal '"<< argv[4] <<"' for jug A." <<endl; //print appropriate message
-      return 1; //return integer
-    }
-    istringstream iss(argv[5]);
-     if(!(iss >> compare5)){ //compares if the input is an integer 
-           cerr<< "Error: Invalid goal '"<< argv[5] <<"' for jug B." <<endl; //print appropriate message
-      return 1; //return integer
-    }
-    istringstream iss(argv[6]);
-     if(!(iss >> compare6)){ //compares if the input is an integer 
-           cerr<< "Error: Invalid goal '"<< argv[6] <<"' for jug C." <<endl; //print appropriate message
-      return 1; //return integer
-    }
+    // istringstream iss(argv[2]);
+    //  if(!(iss >> compare2)){ //compares if the input is an integer 
+    //        cerr<< "Error: Invalid capacity '"<< argv[2] <<"' for jug B." <<endl; //print appropriate message
+    //   return 1; //return integer
+    // }
+    // istringstream iss(argv[3]);
+    //  if(!(iss >> compare3)){ //compares if the input is an integer 
+    //        cerr<< "Error: Invalid capacity '"<< argv[3] <<"' for jug C." <<endl; //print appropriate message
+    //   return 1; //return integer
+    // }
+    // istringstream iss(argv[4]);
+    //  if(!(iss >> compare4)){ //compares if the input is an integer 
+    //        cerr<< "Error: Invalid goal '"<< argv[4] <<"' for jug A." <<endl; //print appropriate message
+    //   return 1; //return integer
+    // }
+    // istringstream iss(argv[5]);
+    //  if(!(iss >> compare5)){ //compares if the input is an integer 
+    //        cerr<< "Error: Invalid goal '"<< argv[5] <<"' for jug B." <<endl; //print appropriate message
+    //   return 1; //return integer
+    // }
+    // istringstream iss(argv[6]);
+    //  if(!(iss >> compare6)){ //compares if the input is an integer 
+    //        cerr<< "Error: Invalid goal '"<< argv[6] <<"' for jug C." <<endl; //print appropriate message
+    //   return 1; //return integer
+    // }
 
     //Is Cap of c = 0?
     if(argv[3] >= 0){
@@ -141,14 +195,11 @@ int main(int argc, char* const argv[]) { //MAIN METHOD
     }
     
     
-    int goala = atoi(argv[4]);
-    int goalb = atoi(argv[5]);
-    int goalc = atoi(argv[6]);
-    int capc = atoi(argv[3]);
+    
     // is goal A + goal B + goal C = Cap C 
-    if((goala + goalb + goalc)==capc){
+    if((gA + gB + gC)==cC){
         //call waterjug
-        //waterjug(argv[1],argv[2],argv[3],argv[4],argv[5],argv[6])
+        waterjug(cA,cB,cC,gA,gb,gC)
         cout << "works" << endl;
         return 0;
     } else
