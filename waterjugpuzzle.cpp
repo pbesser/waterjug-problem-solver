@@ -66,9 +66,12 @@ int main(int argc, char* const argv[]) { //MAIN METHOD
         return 1; //return integer to satasify the definition of the main
     }
     //testing the validities of the capacities 
-    //is it an integer? : istringsteam iss(argv[i])
-    //if no: print error: invalid cap/invalid goal
-    //
+    //are there 7 arguments?: if No:error
+    //is each argument an integer?: if no: print error: invalid cap/invalid goal 
+    //istringsteam iss(argv[i])
+    //is cap of C 0?: if yes: error
+    //if no: is |goal a,b,c| > |cap a,b,c| ?: if yes: error
+
     iss.str(argv[1]); // update iss 
     if(!(iss >> c1)){ //make comparisons
          cerr<< "Error: Invalid capacity '"<< argv[1] <<"' for jug A." <<endl; //print appropriate message
