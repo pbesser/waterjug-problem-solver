@@ -143,7 +143,7 @@ int main(int argc, char* const argv[]) { //MAIN METHOD
     
 
     // is goal A + goal B + goal C = Cap C 
-    if((arv[4]+argv[5]+argv[6])==argv[3]){
+    if((argv[4]+argv[5]+argv[6])==argv[3]){
         //call waterjug
         //waterjug(argv[1],argv[2],argv[3],argv[4],argv[5],argv[6])
         return 0;
