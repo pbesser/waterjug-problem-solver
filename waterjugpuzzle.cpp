@@ -27,20 +27,32 @@ struct State {
         return oss.str();
     }
 };
-/*
-void bfs(int Ca, int Cb, int Cc, int Ga, int Gb, int Gc, int a, int b, int c){
 
-*int Ca,Cb,Cc are the capacities of jugs a,b,c respectively.
-*int Ga,Gb,Gc are the goals of jugs a,b,c respectively.
-*int a,b,c are the states of jugs a,b,c respectively
+int cA = atoi(argv[1]);
+int cB = atoi(argv[2]);
+int cC = atoi(argv[3]);
+int gA = atoi(argv[4]);
+int gB = atoi(argv[5]);
+int gC = atoi(argv[6]);
+void bfs(int cA, int cB, int cC, int gA, int gB, int gC, int A, int B, int C){
+/*
+*int cA,cB,cC are the capacities of jugs a,b,c respectively.
+*int gA,gB,gC are the goals of jugs a,b,c respectively.
+*int A,B,C are the states of jugs a,b,c respectively
 
     bool solution = false; //Value that determines if there is a solution.
+    visited = {};
+    path = [];
     if(Ga==a && Gb==b && Gb==c){//if 
         solution = true;
     }
     else{
         //Pour c -> A
-
+        if(A > 0){
+            if((A + B) <= cC){
+                
+            }
+        }
         //Pour B -> A
 
         //Pour C -> B
@@ -103,19 +115,19 @@ int main(int argc, char* const argv[]) { //MAIN METHOD
         iss.str(argv[i]); //define istringstream
         if(i>=1 && i<=3){   // capacity cases
             if(i==1){ //jug A
-                if(!(iss>>compare)){
+                if(!(iss >> compare) || (compare < 0) || (compare == 0 && i == 3)){
                 cerr << "Error: Invalid capacity '" << argv[i] << "' for jug A." << endl;
 			    return 1;
                 }
             }
             if(i==2){//Jug B
-                if(!(iss>>compare)){
+                if(!(iss >> compare) || (compare < 0) || (compare == 0 && i == 3)){
                 cerr << "Error: Invalid capacity '" << argv[i] << "' for jug B." << endl;
 			    return 1;
                 }
             } 
             if(i==3){//Jug C
-                if(!(iss>>compare)){
+                if(!(iss >> compare) || (compare < 0) || (compare == 0 && i == 3)){
                 cerr << "Error: Invalid capacity '" << argv[i] << "' for jug C." << endl;
                 return 1;
                 }
@@ -125,19 +137,19 @@ int main(int argc, char* const argv[]) { //MAIN METHOD
          
         if(i>3){//goal cases
             if(i==4){ //jug A
-                if(!(iss>>compare)){
+                if(!(iss >> compare) || (compare < 0) || (compare == 0 && i == 3)){
                 cerr << "Error: Invalid goal '" << argv[i] << "' for jug A." << endl;
 			    return 1;
                 }
             }
             if(i==5){//Jug B
-                if(!(iss>>compare)){
+                if(!(iss >> compare) || (compare < 0) || (compare == 0 && i == 3)){
                 cerr << "Error: Invalid goal '" << argv[i] << "' for jug B." << endl;
 			    return 1;
                 }
             } 
             if(i==6){//Jug C
-                if(!(iss>>compare)){
+                if(!(iss >> compare) || (compare < 0) || (compare == 0 && i == 3)){
                 cerr << "Error: Invalid goal '" << argv[i] << "' for jug C." << endl;
                 return 1;
                 }
@@ -194,7 +206,7 @@ int main(int argc, char* const argv[]) { //MAIN METHOD
         cerr<< "Error: Error: Goal cannot exceed capacity of jug C." << endl;
         return 1;
     }
-    
+
     
     
     // is goal A + goal B + goal C = Cap C 
@@ -208,9 +220,6 @@ int main(int argc, char* const argv[]) { //MAIN METHOD
         cerr<<"Error: Total gallons in the goal state must be equal to the capacity of jug C."<<endl; 
         return 1;
     }
-    
-
-
     
 
 
