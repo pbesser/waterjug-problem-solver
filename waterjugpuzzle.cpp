@@ -114,26 +114,6 @@ int main(int argc, char* const argv[]) { //MAIN METHOD
     int gB = atoi(argv[5]);
     int gC = atoi(argv[6]);
     
-    //Is Cap of c = 0?
-    if(argv[3] >= 0){
-        cerr<< "Error: Invalid capacity '"<< argv[3] <<"' for jug C."<<endl;
-        return 1; 
-    }
-    
-    // is goal A/B/C > cap A/B/C
-    if(argv[4] > argv[1]){
-        cerr<< "Error: Goal cannot exceed capacity of jug A." << endl;
-        return 1;
-    }
-    if(argv[5] > argv[2]){
-        cerr<< "Error: Goal cannot exceed capacity of jug B." << endl;
-        return 1;
-    }
-    if(argv[6] > argv[3]){
-        cerr<< "Error: Goal cannot exceed capacity of jug C." << endl;
-        return 1;
-    }
-    
     istringstream iss; 
     for(int i=1;i<7;i++){
         iss.str(argv[i]); //define istringstream
