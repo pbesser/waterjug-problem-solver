@@ -83,13 +83,14 @@ int main(int argc, char* const argv[]) { //MAIN METHOD
          return 1; //return integer to satasify the definition of the main
     }
     //Is each argument an int?
-    for(int i=1; i <= 5;i++){
-        iss.str(argv[i]);
-        if(!(iss >> compare1)){
-          cerr<< "Error: Invalid capacity '"<< argv[i] <<"' for jug A." <<endl; //print appropriate message
-          return 1; //return integer
-        }
-    }
+    // for(int i=1; i <= 5;i++){
+    //     iss.str(argv[i]);
+    //     if(!(iss >> compare1)){
+    //       cerr<< "Error: Invalid capacity '"<< argv[i] <<"' for jug A." <<endl; //print appropriate message
+    //       return 1; //return integer
+    //     }
+    // }
+    
     int cA = atoi(argv[1]);
     int cB = atoi(argv[2]);
     int cC = atoi(argv[3]);
