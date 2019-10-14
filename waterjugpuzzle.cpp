@@ -90,6 +90,7 @@ int main(int argc, char* const argv[]) { //MAIN METHOD
     //       return 1; //return integer
     //     }
     // }
+    iss.clear();
     iss.str(argv[1]);
      if(!(iss >> compare1)){ //compares if the input is an integer 
            cerr<< "Error: Invalid capacity '"<< argv[1] <<"' for jug A." <<endl; //print appropriate message
