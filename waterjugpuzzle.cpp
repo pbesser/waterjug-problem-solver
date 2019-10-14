@@ -141,11 +141,15 @@ int main(int argc, char* const argv[]) { //MAIN METHOD
     }
     
     
-
+    int goala = atoi(argv[4]);
+    int goalb = atoi(argv[5]);
+    int goalc = atoi(argv[6]);
+    int capc = atoi(argv[3]);
     // is goal A + goal B + goal C = Cap C 
-    if((argv[4]+argv[5]+argv[6])==argv[3]){
+    if((goala + goalb + goalc)==capc){
         //call waterjug
         //waterjug(argv[1],argv[2],argv[3],argv[4],argv[5],argv[6])
+        cout << "works" << endl;
         return 0;
     } else
     {
