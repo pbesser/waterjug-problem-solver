@@ -98,15 +98,7 @@ int main(int argc, char* const argv[]) { //MAIN METHOD
               << endl; //print the corresponding error message
          return 1; //return integer to satasify the definition of the main
     }
-    
-    
-    // int cA = atoi(argv[1]);
-    // int cB = atoi(argv[2]);
-    // int cC = atoi(argv[3]);
-    // int gA = atoi(argv[4]);
-    // int gB = atoi(argv[5]);
-    // int gC = atoi(argv[6]);
-    
+  
     istringstream iss; //define i string stream
     for(int i=1;i<7;i++){
         iss.str(argv[i]); //update istringstream
@@ -153,16 +145,30 @@ int main(int argc, char* const argv[]) { //MAIN METHOD
             iss.clear();
         } 
     }
-   
 
-    if(){
-
+    //convert inputs to ints bc we already know that they are valid, non-negative integers
+    int cA = atoi(argv[1]);
+    int cB = atoi(argv[2]);
+    int cC = atoi(argv[3]);
+    int gA = atoi(argv[4]);
+    int gB = atoi(argv[5]);
+    int gC = atoi(argv[6]);
+    
+    // compare 1 to 4 aka A to A 
+    if(cA>gA){
+        cerr << "Error: Goal cannot exceed capacity of jug A." << std::endl;
+        return 1; 
     }
-    if(){
-
+    //compare 2 to 5 aka B to B 
+    if(cB>gB){
+        cerr << "Error: Goal cannot exceed capacity of jug B." << std::endl;
+		return 1;
     }
-    if(){
+    //compare 3 to 6 aka C to C 
+    if(cC > gC){
+        cerr << "Error: Goal cannot exceed capacity of jug C." << std::endl;
 
+        return 1;
     }
 
     
@@ -306,3 +312,13 @@ run_test_args "4 17 22 2 5 15" "No solution."
     //       return 1; //return integer
     //     }
     // }
+
+  
+    
+    // int cA = atoi(argv[1]);
+    // int cB = atoi(argv[2]);
+    // int cC = atoi(argv[3]);
+    // int gA = atoi(argv[4]);
+    // int gB = atoi(argv[5]);
+    // int gC = atoi(argv[6]);
+    
