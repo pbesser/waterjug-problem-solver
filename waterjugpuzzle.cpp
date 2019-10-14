@@ -75,7 +75,6 @@ int main(int argc, char* const argv[]) { //MAIN METHOD
     // //if no: is |goal a,b,c| > |cap a,b,c| ?: if yes: error
     // //If no: is goal a + goal b + goal c + 
 
-    istringstream iss; 
     int compare1, compare2, compare3, compare4, compare5, compare6;
 
     if (argc != 7) { //check for correct number of arguments
