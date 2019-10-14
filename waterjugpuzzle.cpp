@@ -155,19 +155,18 @@ int main(int argc, char* const argv[]) { //MAIN METHOD
     int gC = atoi(argv[6]);
     
     // compare 1 to 4 aka A to A 
-    if(cA>gA){
-        cerr << "Error: Goal cannot exceed capacity of jug A." << std::endl;
+    if(cA<gA){
+        cerr << "Error: Goal cannot exceed capacity of jug A." << endl;
         return 1; 
     }
     //compare 2 to 5 aka B to B 
-    if(cB>gB){
-        cerr << "Error: Goal cannot exceed capacity of jug B." << std::endl;
+    if(cB<gB){
+        cerr << "Error: Goal cannot exceed capacity of jug B." << endl;
 		return 1;
     }
     //compare 3 to 6 aka C to C 
-    if(cC > gC){
-        cerr << "Error: Goal cannot exceed capacity of jug C." << std::endl;
-
+    if(cC<gC){
+        cerr << "Error: Goal cannot exceed capacity of jug C." << endl;
         return 1;
     }
 
