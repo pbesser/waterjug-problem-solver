@@ -98,7 +98,7 @@ int main(int argc, char* const argv[]) { //MAIN METHOD
     int gC = atoi(argv[6]);
     
     istringstream iss; 
-    for(int i=1;i<7){
+    for(int i=1;i<7;i++){
         iss.str(argv[i]); //define istringstream
         if(i>=1 && i<=3){   // capacity cases
             if(i==1){ //jug A
@@ -199,7 +199,7 @@ int main(int argc, char* const argv[]) { //MAIN METHOD
     // is goal A + goal B + goal C = Cap C 
     if((gA + gB + gC)==cC){
         //call waterjug
-        waterjug(cA,cB,cC,gA,gb,gC)
+        waterjug(cA,cB,cC,gA,gB,gC)
         cout << "works" << endl;
         return 0;
     } else
