@@ -28,12 +28,15 @@ struct State {
     }
 };
 
-int cA = atoi(argv[1]);
-int cB = atoi(argv[2]);
-int cC = atoi(argv[3]);
-int gA = atoi(argv[4]);
-int gB = atoi(argv[5]);
-int gC = atoi(argv[6]);
+// int cA = atoi(argv[1]);
+// int cB = atoi(argv[2]);
+// int cC = atoi(argv[3]);
+// int gA = atoi(argv[4]);
+// int gB = atoi(argv[5]);
+// int gC = atoi(argv[6]);
+
+
+
 void bfs(int cA, int cB, int cC, int gA, int gB, int gC, int A, int B, int C){
 /*
 *int cA,cB,cC are the capacities of jugs a,b,c respectively.
@@ -66,8 +69,9 @@ void bfs(int cA, int cB, int cC, int gA, int gB, int gC, int A, int B, int C){
     }
     
     
-}
+
 */
+}
 
 void waterjug(int c1, int c2, int c3,int g1,int g2,int g3){
 
