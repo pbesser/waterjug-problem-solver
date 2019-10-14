@@ -92,37 +92,37 @@ int main(int argc, char* const argv[]) { //MAIN METHOD
     //     }
     // }
     iss.clear();
-    iss.str(argv[1]);
+    istringstream iss(argv[1]);
      if(!(iss >> compare1)){ //compares if the input is an integer 
            cerr<< "Error: Invalid capacity '"<< argv[1] <<"' for jug A." <<endl; //print appropriate message
       return 1; //return integer
     }
     iss.clear();
-    iss.str(argv[2]);
+    istringstream iss(argv[2]);
      if(!(iss >> compare2)){ //compares if the input is an integer 
            cerr<< "Error: Invalid capacity '"<< argv[2] <<"' for jug B." <<endl; //print appropriate message
       return 1; //return integer
     }
     iss.clear();
-    iss.str(argv[3]);
+    istringstream iss(argv[3]);
      if(!(iss >> compare3)){ //compares if the input is an integer 
            cerr<< "Error: Invalid capacity '"<< argv[3] <<"' for jug C." <<endl; //print appropriate message
       return 1; //return integer
     }
     iss.clear();
-    iss.str(argv[4]);
+    istringstream iss(argv[4]);
      if(!(iss >> compare4)){ //compares if the input is an integer 
            cerr<< "Error: Invalid goal '"<< argv[4] <<"' for jug A." <<endl; //print appropriate message
       return 1; //return integer
     }
     iss.clear();
-    iss.str(argv[5]);
+    istringstream iss(argv[5]);
      if(!(iss >> compare5)){ //compares if the input is an integer 
            cerr<< "Error: Invalid goal '"<< argv[5] <<"' for jug B." <<endl; //print appropriate message
       return 1; //return integer
     }
     iss.clear();
-    iss.str(argv[6]);
+    istringstream iss(argv[6]);
      if(!(iss >> compare6)){ //compares if the input is an integer 
            cerr<< "Error: Invalid goal '"<< argv[6] <<"' for jug C." <<endl; //print appropriate message
       return 1; //return integer
