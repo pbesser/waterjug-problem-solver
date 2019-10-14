@@ -114,9 +114,9 @@ int main(int argc, char* const argv[]) { //MAIN METHOD
     int gB = atoi(argv[5]);
     int gC = atoi(argv[6]);
     
-    istringstream iss; 
+    istringstream iss; //define i string stream
     for(int i=1;i<7;i++){
-        iss.str(argv[i]); //define istringstream
+        iss.str(argv[i]); //update istringstream
         if(i>=1 && i<=3){   // capacity cases
             if(i==1){ //jug A
                 if(!(iss >> compare) || (compare < 0) || (compare == 0 && i == 3)){
@@ -203,7 +203,7 @@ int main(int argc, char* const argv[]) { //MAIN METHOD
         return 0;
     } else
     {
-        cerr<<"Error: Total gallons in the goal state must be equal to the capacity of jug C."<<endl; 
+        cerr<<"Error: Total gallons in goal state must be equal to the capacity of jug C."<<endl; 
         return 1;
     }
     
