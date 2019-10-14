@@ -82,7 +82,7 @@ int main(int argc, char* const argv[]) { //MAIN METHOD
               << endl; //print the corresponding error message
          return 1; //return integer to satasify the definition of the main
     }
-    Is each argument an int?
+    //Is each argument an int?
     for(int i=1; i <= 5;i++){
         iss.str(argv[i]);
         if(!(iss >> compare1)){
@@ -115,7 +115,7 @@ int main(int argc, char* const argv[]) { //MAIN METHOD
             } 
             if(i==3){//Jug C
                 if(!(iss>>compare)){
-                cerr << "Error: Invalid capacity '" << argv[i] << "' for jug C." << endl
+                cerr << "Error: Invalid capacity '" << argv[i] << "' for jug C." << endl;
                 return 1;
                 }
             }
@@ -137,7 +137,7 @@ int main(int argc, char* const argv[]) { //MAIN METHOD
             } 
             if(i==6){//Jug C
                 if(!(iss>>compare)){
-                cerr << "Error: Invalid goal '" << argv[i] << "' for jug C." << endl
+                cerr << "Error: Invalid goal '" << argv[i] << "' for jug C." << endl;
                 return 1;
                 }
             }
@@ -199,7 +199,7 @@ int main(int argc, char* const argv[]) { //MAIN METHOD
     // is goal A + goal B + goal C = Cap C 
     if((gA + gB + gC)==cC){
         //call waterjug
-        waterjug(cA,cB,cC,gA,gB,gC)
+        waterjug(cA,cB,cC,gA,gB,gC);
         cout << "works" << endl;
         return 0;
     } else
