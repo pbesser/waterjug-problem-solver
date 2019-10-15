@@ -72,7 +72,7 @@ make queue, each pour is recorded in the queue need to try all 67 pours for each
 */
 
 
-void waterjug(State begin, State currentCap, State finish){
+void waterjug(State* begin, State* currentCap, State* finish){
 
 
 
