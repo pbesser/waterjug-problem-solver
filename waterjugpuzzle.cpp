@@ -28,53 +28,79 @@ struct State
         oss << "(" << a << ", " << b << ", " << c << ")";
         return oss.str();
     }
-    // bool operator == (State &temp){ // add method to compare two States of jugs
-  	// 	return(a == temp.getA() and  b == temp.getB() and c == temp.getC());
-  	// }
+    // to compare different states to one another which will eventually be used to check if we have reached an asnwer
+      int compareTo(State &temp){
+          if(a == temp.getA() and  b == temp.getB() and c == temp.getC());
+                return 0;
+          else
+                return 1;
+                
+                
+      }
 };
 
 
-void solve(State* currentCap, State* finish){
-    vector<string> directions;
-    State start = new State();
-    bool ** checked = makeMatrix(cA+1, cb+1);
-    finish = findpath(start,currentCap,finish, directions);
+void solve(struct State* currentCap, struct State* finish){
+    vector<string> directions; // initalize directions
+    struct State* start = new struct State(); // initalize instructions
+    start= State(0,0,stoi(argv[3]));
+    new bool ** visited = createGrid(currentCap._a+1,currentCap.b+1);
+    finish = paths(start,currentCap,finish,directions,visited);
     finish.print();
-
-     for (int i = 0; i < capB; i++){
+ 
+     for (int i = 0; i < capB; i++){ // when done delete the array to prevent memory leaks
         delete [] checked[i];
     }
-    delete [] checked;
+    delete [] checked; // delete arrays
+    // done
     
 }
 
-State waterjug(State* begin, State* currentCap, State* finish, vector<string>){
-// BFS 
-queue<State> instructions; // initalize temp array to store instructions
-begin.directions.push_back("Inital state. "+begin.to_string()); //put inital instruction in the directions vector
-instructions.push(begin); // input put it in the queue 
-
-bool**checked[i] = new bool*[cA + 1]; // initalize booleans to test for 'visited' for bfs 
-for(int A, int B, int C){  //fill with default falses
-    checked[i] = new bool*[cB + 1];
-    fill(checked[i], checked[i] + cB + 1, false);
+bool** createGrid(int x, int y) {
+    bool**grid = new bool*[a];
+    for (int i = 0; i < x; i++){
+        grid[i] = new bool[b];
+        fill(grid[i], grid[i] + y,false);
+    }
+    return map;
 }
+
+struct State paths(struct State* begin, struct State* currentCap, struct State* finish, vector<string> directions, bool ** visited){
+// BFS 
+queue<State> instructions; // initalize temp array(queue) to store instructions
+begin.directions.push_back("Inital state. "+begin.to_string()); //put inital instruction in the directions vector
+instructions.push(begin); // push initial state to the queue 
+while(!(instructions.empty)){
+
     //1) Pour from C to A
     if(A > 0){
         if((A + B) <= cC){
             
         }
     }
+
+
+
+
+
+
+
+
+
 //2) Pour from B to A
+
+
+
+
 //3) Pour from C to B
 //4) Pour from A to B
 //5) Pour from B to C
 //6) Pour from A to C
-
-
-
-
 }
+else{cout << "No solution." << endl;}
+}
+
+
 int main(int argc, char *const argv[])
 { //MAIN METHOD
 
@@ -182,8 +208,8 @@ int main(int argc, char *const argv[])
         //call waterjug
         //begin by initalizing our 3 states. Where we start. What our capacities are and our final goal to fulfill
         // State *begin = new State(0, 0, stoi(argv[3]));                              // begin
-        State *currentCap = new State(stoi(argv[1]), stoi(argv[2]), stoi(argv[3])); //cap of jugs
-        State *finish = new State(stoi(argv[4]), stoi(argv[5]), stoi(argv[6]));     // goals to find
+        struct State *currentCap = new struct State(stoi(argv[1]), stoi(argv[2]), stoi(argv[3])); //cap of jugs
+        struct State *finish = new struct State(stoi(argv[4]), stoi(argv[5]), stoi(argv[6]));     // goals to find
         //call methods
         //as said in class we need to find all possible paths to find the answer and then BFS to get the solution
         solve(currentCap, finish);
@@ -365,6 +391,12 @@ make queue, each pour is recorded in the queue need to try all 67 pours for each
     
 
 */
+
+// bool**checked[i] = new bool*[cA + 1]; // initalize booleans to test for 'visited' for bfs 
+// for(int A, int B, int C){  //fill with default falses
+//     checked[i] = new bool*[cB + 1];
+//     fill(checked[i], checked[i] + cB + 1, false);
+// }
 
 
     // //testing the validities of the capacities
