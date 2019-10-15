@@ -38,7 +38,7 @@ struct State
           }
                 
       }
-};
+}
 
 
 void solve(struct State* currentCap, struct State* finish){
