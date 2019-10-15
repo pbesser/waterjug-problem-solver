@@ -43,8 +43,7 @@ struct State
 
 void solve(struct State* currentCap, struct State* finish){
     vector<string> directions; // initalize directions
-    struct State* start = new struct State(); // initalize instructions
-    start= State(0,0,currentCap._c);
+    State* start = new State(0,0,currentCap._c); // initalize instructions
     new bool ** visited = createGrid(currentCap.a+1,currentCap.b+1);
     finish = paths(start,currentCap,finish,directions,visited);
     finish.print();
