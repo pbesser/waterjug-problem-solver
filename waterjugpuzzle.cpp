@@ -19,7 +19,7 @@ struct State
     int a, b, c;
     vector<string> directions;
 
-    State(int _a, int _b, int _c) : a(_a), b(_b), c(_c) {}
+    State(int _a, int _b, int _c, vector<string> directions) : a(_a), b(_b), c(_c), directions(_directions) {}
 
     // String representation of state in tuple form.
     string to_string()
@@ -28,67 +28,55 @@ struct State
         oss << "(" << a << ", " << b << ", " << c << ")";
         return oss.str();
     }
+    // bool operator == (State &temp){ // add method to compare two States of jugs
+  	// 	return(a == temp.getA() and  b == temp.getB() and c == temp.getC());
+  	// }
 };
 
-/*
-make queue, each pour is recorded in the queue need to try all 67 pours for each given state in our solution. 
 
+void solve(State* currentCap, State* finish){
+    vector<string> directions;
+    State start = new State();
+    bool ** checked = makeMatrix(cA+1, cb+1);
+    finish = findpath(start,currentCap,finish, directions);
+    finish.print();
 
-// void bfs(int cA, int cB, int cC, int gA, int gB, int gC, int A, int B, int C)
-// {}
-*/    
-/*
-*int cA,cB,cC are the capacities of jugs a,b,c respectively.
-*int gA,gB,gC are the goals of jugs a,b,c respectively.
-*int A,B,C are the states of jugs a,b,c respectively
-
-    bool solution = false; //Value that determines if there is a solution.
-    visited = {};
-    path = [];
-    if(Ga==a && Gb==b && Gb==c){//if 
-        solution = true;
+     for (int i = 0; i < capB; i++){
+        delete [] checked[i];
     }
-    else{
-        //Pour c -> A
-        if(A > 0){
-            if((A + B) <= cC){
-                
-            }
+    delete [] checked;
+    
+}
+
+State waterjug(State* begin, State* currentCap, State* finish, vector<string>){
+// BFS 
+queue<State> instructions; // initalize temp array to store instructions
+begin.directions.push_back("Inital state. "+begin.to_string()); //put inital instruction in the directions vector
+instructions.push(begin); // input put it in the queue 
+
+bool**checked[i] = new bool*[cA + 1]; // initalize booleans to test for 'visited' for bfs 
+for(int A, int B, int C){  //fill with default falses
+    checked[i] = new bool*[cB + 1];
+    fill(checked[i], checked[i] + cB + 1, false);
+}
+    //1) Pour from C to A
+    if(A > 0){
+        if((A + B) <= cC){
+            
         }
-        //Pour B -> A
-
-        //Pour C -> B
-
-        //Pour A -> B
-
-        //Pour B -> C
-
-        //Pour A -> C
-
     }
-    
-    
+//2) Pour from B to A
+//3) Pour from C to B
+//4) Pour from A to B
+//5) Pour from B to C
+//6) Pour from A to C
 
-*/
-
-
-void waterjug(State* begin, State* currentCap, State* finish){
 
 
 
 }
-
-
 int main(int argc, char *const argv[])
 { //MAIN METHOD
-
-    // //testing the validities of the capacities
-    // //are there 7 arguments?: if No:error
-    // //is each argument an integer?: if no: print error: invalid cap/invalid goal
-    // //istringsteam iss(argv[i])
-    // //is cap of C 0?: if yes: error
-    // //if no: is |goal a,b,c| > |cap a,b,c| ?: if yes: error
-    // //If no: is goal a + goal b + goal c +
 
     int compare;
 
@@ -193,12 +181,12 @@ int main(int argc, char *const argv[])
     {
         //call waterjug
         //begin by initalizing our 3 states. Where we start. What our capacities are and our final goal to fulfill
-        State *begin = new State(0, 0, stoi(argv[3]));                              // begin
+        // State *begin = new State(0, 0, stoi(argv[3]));                              // begin
         State *currentCap = new State(stoi(argv[1]), stoi(argv[2]), stoi(argv[3])); //cap of jugs
         State *finish = new State(stoi(argv[4]), stoi(argv[5]), stoi(argv[6]));     // goals to find
         //call methods
         //as said in class we need to find all possible paths to find the answer and then BFS to get the solution
-        waterjug(begin, currentCap, finish);
+        solve(currentCap, finish);
         cout << "works" << endl;
         return 0;
     }
@@ -335,3 +323,56 @@ run_test_args "4 17 22 2 5 15" "No solution."
 // int gA = atoi(argv[4]);
 // int gB = atoi(argv[5]);
 // int gC = atoi(argv[6]);
+
+
+/*
+make queue, each pour is recorded in the queue need to try all 67 pours for each given state in our solution. 
+
+
+// void bfs(int cA, int cB, int cC, int gA, int gB, int gC, int A, int B, int C)
+// {}
+*/    
+/*
+*int cA,cB,cC are the capacities of jugs a,b,c respectively.
+*int gA,gB,gC are the goals of jugs a,b,c respectively.
+*int A,B,C are the states of jugs a,b,c respectively
+
+    bool solution = false; //Value that determines if there is a solution.
+    visited = {};
+    path = [];
+    if(Ga==a && Gb==b && Gb==c){//if 
+        solution = true;
+    }
+    else{
+        //Pour c -> A
+        if(A > 0){
+            if((A + B) <= cC){
+                
+            }
+        }
+        //Pour B -> A
+
+        //Pour C -> B
+
+        //Pour A -> B
+
+        //Pour B -> C
+
+        //Pour A -> C
+
+    }
+    
+    
+
+*/
+
+
+    // //testing the validities of the capacities
+    // //are there 7 arguments?: if No:error
+    // //is each argument an integer?: if no: print error: invalid cap/invalid goal
+    // //istringsteam iss(argv[i])
+    // //is cap of C 0?: if yes: error
+    // //if no: is |goal a,b,c| > |cap a,b,c| ?: if yes: error
+    // //If no: is goal a + goal b + goal c +
+
+
