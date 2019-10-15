@@ -36,7 +36,8 @@ make queue, each pour is recorded in the queue need to try all 67 pours for each
 
 // void bfs(int cA, int cB, int cC, int gA, int gB, int gC, int A, int B, int C)
 // {}
-    /*
+*/    
+/*
 *int cA,cB,cC are the capacities of jugs a,b,c respectively.
 *int gA,gB,gC are the goals of jugs a,b,c respectively.
 *int A,B,C are the states of jugs a,b,c respectively
