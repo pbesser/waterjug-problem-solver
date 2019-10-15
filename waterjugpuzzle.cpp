@@ -43,41 +43,52 @@ struct State
 void solve(struct State* currentCap, struct State* finish){
     vector<string> directions; // initalize directions
     struct State* start = new struct State(); // initalize instructions
-    start= State(0,0,stoi(argv[3]));
+    start= State(0,0,currentCap._c);
     new bool ** visited = createGrid(currentCap._a+1,currentCap.b+1);
     finish = paths(start,currentCap,finish,directions,visited);
     finish.print();
- 
      for (int i = 0; i < capB; i++){ // when done delete the array to prevent memory leaks
         delete [] checked[i];
     }
     delete [] checked; // delete arrays
-    // done
-    
+    // done   
 }
 
 bool** createGrid(int x, int y) {
-    bool**grid = new bool*[a];
+    bool**visit = new bool*[a];
+
     for (int i = 0; i < x; i++){
         grid[i] = new bool[b];
         fill(grid[i], grid[i] + y,false);
     }
-    return map;
+    return grid;
 }
 
 struct State paths(struct State* begin, struct State* currentCap, struct State* finish, vector<string> directions, bool ** visited){
-// BFS 
+// BFS for our 
 queue<State> instructions; // initalize temp array(queue) to store instructions
 begin.directions.push_back("Inital state. "+begin.to_string()); //put inital instruction in the directions vector
 instructions.push(begin); // push initial state to the queue 
 while(!(instructions.empty)){
+    top = instructions.front();
+    top.pop();
 
-    //1) Pour from C to A
-    if(A > 0){
-        if((A + B) <= cC){
-            
-        }
+    if(top.compareTo(finish)==0){
+        return top; // end condition 
     }
+    //1) Pour from C to A
+    if(top.c > 0 && (currentcap.a - top.a) > 0){
+        state currentMove = top; //variable used to hold the current move, while we decide to push it, or get rid of it
+        int drain = currentcap.a - currentMove.a; //drain is the difference between the current capacity of jug A - the state of jug A
+        if(drain > currentMove.c){
+            currentMove.c = (currentMove.c + top.c);
+            currentMove.c = 0;
+        }
+    else{
+        currentMove.c = (currentMove.c - drain);
+        currentMove.a = currentCap.a;        
+    }
+} 
 
 
 
