@@ -30,7 +30,7 @@ struct State
     }
     // to compare different states to one another which will eventually be used to check if we have reached an asnwer
       int compareTo(State &temp){
-          if(a == temp.a and  b == temp.b and c == temp.c){}
+          if(a == temp.a and  b == temp.b and c == temp.c){
                 return 0;
       }
           else{
@@ -45,7 +45,7 @@ void solve(struct State* currentCap, struct State* finish){
     vector<string> directions; // initalize directions
     struct State* start = new struct State(); // initalize instructions
     start= State(0,0,currentCap._c);
-    new bool ** visited = createGrid(currentCap._a+1,currentCap.b+1);
+    new bool ** visited = createGrid(currentCap.a+1,currentCap.b+1);
     finish = paths(start,currentCap,finish,directions,visited);
     finish.print();
      for (int i = 0; i < capB; i++){ // when done delete the array to prevent memory leaks
