@@ -72,9 +72,12 @@ make queue, each pour is recorded in the queue need to try all 67 pours for each
 */
 
 
-void waterjug(int c1, int c2, int c3, int g1, int g2, int g3)
-{
+void waterjug(State begin, State currentCap, State finish){
+
+
+
 }
+
 
 int main(int argc, char *const argv[])
 { //MAIN METHOD
