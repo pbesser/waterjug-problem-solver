@@ -30,7 +30,7 @@ struct State
     }
     // to compare different states to one another which will eventually be used to check if we have reached an asnwer
       int compareTo(State &temp){
-          if(a == temp.getA() and  b == temp.getB() and c == temp.getC());
+          if(a == temp._a and  b == temp._b and c == temp._c);
                 return 0;
           else
                 return 1;
