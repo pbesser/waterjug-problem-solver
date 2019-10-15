@@ -30,11 +30,12 @@ struct State
     }
     // to compare different states to one another which will eventually be used to check if we have reached an asnwer
       int compareTo(State &temp){
-          if(a == temp._a and  b == temp._b and c == temp._c);
+          if(a == temp._a and  b == temp._b and c == temp._c){}
                 return 0;
-          else
+      }
+          else{
                 return 1;
-                
+          }
                 
       }
 };
