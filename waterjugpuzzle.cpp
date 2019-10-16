@@ -14,8 +14,8 @@
 #include <queue>
 
 using namespace std;
-//struct state
-struct State
+// state
+ State
 {
     int a, b, c;
     vector<string> directions;
@@ -31,7 +31,7 @@ struct State
     }
     // to compare different states to one another which will eventually be used to check if we have reached an asnwer
       int compareTo(State &temp){
-          if(a == temp.getA() and  b == temp.getB() and c == temp.getC()){
+          if(a == temp.getA() &&  b == temp.getB() && c == temp.getC()){
                 return 0;
       }
           else{
@@ -57,30 +57,30 @@ struct State
 };
 
 // breadth first search
-struct State paths(struct State top, struct State* currentCap, struct State* finish, vector<string> directions, bool** map){
+ State paths( State top,  State currentCap,  State finish, vector<string> directions, bool** map){
 // BFS for our jugs
-queue<State> instructions; // initalize temp array(queue) to store instructions
-top.directions.push_back("Inital state. "+top.to_string()); //put inital instruction in the directions vector
+queue<State> inions; // initalize temp array(queue) to store inions
+top.directions.push_back("Inital state. "+top.to_string()); //put inital inion in the directions vector
 map[top.a][top.b] = true;
-instructions.push(top); // push initial state to the queue 
-while(!(instructions.empty())){
-    top = instructions.front();
-    instructions.pop();
+inions.push(top); // push initial state to the queue 
+while(!(inions.empty())){
+    top = inions.front();
+    inions.pop();
 
     if(top.compareTo(finish)==0){
         return top; // end condition 
     }
     //1) Pour from C to A
-    if(top.c > 0 && (currentCap -> a - top.a) > 0){
+    if(top.c > 0 && (currentCap.a - top.a) > 0){
         State currentMove = top; //variable used to hold the current move, while we decide to push it, or get rid of it
-        int drain = currentCap -> getA() - currentMove.getA(); //drain is the difference between the current capacity of jug A - the state of jug A
+        int drain = currentCap.getA() - currentMove.getA(); //drain is the difference between the current capacity of jug A - the state of jug A
         if(drain > currentMove.c){
             currentMove.a = (currentMove.a + top.c); // if the difference between the two jugs 
             currentMove.c = 0;
         }
     else{
         currentMove.c = (currentMove.c - drain); // actually make the move 
-        currentMove.a = currentCap -> a; 
+        currentMove.a = currentCap.a; 
     }
     // check if we have been here before 
     if(map[currentMove.getA()][currentMove.getB()] == false){
@@ -88,28 +88,28 @@ while(!(instructions.empty())){
         if(drain == 1 || top.c == 1){ // check if the move has one gallon 
             // add direction to our queue Condition: 1 gallon moving 
             currentMove.directions.push_back("Pour 1 gallon from C to A. " + currentMove.to_string());
-            instructions.push(currentMove);
+            inions.push(currentMove);
         }
         else{
             // add direction to our queue, Condition : more than one gallon
             currentMove.directions.push_back("Pour " + to_string(min(drain, top.c)) + " gallons from C to A. " + currentMove.to_string());
-            instructions.push(currentMove);
+            inions.push(currentMove);
     }
     }
 } 
 
 
 //2) Pour from B to A
-    if(top.b > 0 && (currentCap -> a - top.a) > 0){
+    if(top.b > 0 && (currentCap.a - top.a) > 0){
         State currentMove = top; //variable used to hold the current move, while we decide to push it, or get rid of it
-        int drain = currentCap -> getA() - currentMove.getA(); //drain is the difference between the current capacity of jug A - the state of jug A
+        int drain = currentCap.getA() - currentMove.getA(); //drain is the difference between the current capacity of jug A - the state of jug A
         if(drain > currentMove.b){
             currentMove.a = (currentMove.a + top.b); // if the difference between the two jugs
             currentMove.b = 0;
         }
     else{
         currentMove.b = (currentMove.b - drain); // actually make the move 
-        currentMove.a = currentCap -> a; 
+        currentMove.a = currentCap.a; 
     }
     // check if we have been here before 
     if(map[currentMove.getA()][currentMove.getB()] == false){
@@ -117,12 +117,12 @@ while(!(instructions.empty())){
         if(drain == 1 || top.b == 1){ // check if the move has one gallon 
             // add direction to our queue Condition: 1 gallon moving 
             currentMove.directions.push_back("Pour 1 gallon from C to A. " + currentMove.to_string());
-            instructions.push(currentMove);
+            inions.push(currentMove);
         }
         else{
             // add direction to our queue, Condition : more than one gallon
             currentMove.directions.push_back("Pour " + to_string(min(drain, top.b)) + " gallons from C to A. " + currentMove.to_string());
-            instructions.push(currentMove);
+            inions.push(currentMove);
     }
     }
 }
@@ -131,16 +131,16 @@ while(!(instructions.empty())){
 //a=b
 //keep c
 //3) Pour from C to B
-    if(top.c > 0 && (currentCap -> b - top.b) > 0){
+    if(top.c > 0 && (currentCap.b - top.b) > 0){
         State currentMove = top; //variable used to hold the current move, while we decide to push it, or get rid of it
-        int drain = currentCap -> getB() - currentMove.getB(); //drain is the difference between the current capacity of jug A - the state of jug A
+        int drain = currentCap.getB() - currentMove.getB(); //drain is the difference between the current capacity of jug A - the state of jug A
         if(drain > currentMove.c){
             currentMove.b = (currentMove.b + top.c); // if the difference between the two jugs
             currentMove.c = 0;
         }
     else{
         currentMove.c = (currentMove.c - drain); // actually make the move 
-        currentMove.b = currentCap -> b; 
+        currentMove.b = currentCap.b; 
     }
     // check if we have been here before 
     if(map[currentMove.getA()][currentMove.getB()] == false){
@@ -148,29 +148,29 @@ while(!(instructions.empty())){
         if(drain == 1 || top.c == 1){ // check if the move has one gallon 
             // add direction to our queue Condition: 1 gallon moving 
             currentMove.directions.push_back("Pour 1 gallon from C to A. " + currentMove.to_string());
-            instructions.push(currentMove);
+            inions.push(currentMove);
         }
         else{
             // add direction to our queue, Condition : more than one gallon
             currentMove.directions.push_back("Pour " + to_string(min(drain, top.c)) + " gallons from C to A. " + currentMove.to_string());
-            instructions.push(currentMove);
+            inions.push(currentMove);
     }
     }
 
-//C -> A    :   A -> B
+//C.A    :   A.B
 //c=a
 //a=b
 //4) Pour from A to B
-    if(top.c > 0 && (currentCap -> b - top.b) > 0){
+    if(top.c > 0 && (currentCap.b - top.b) > 0){
         State currentMove = top; //variable used to hold the current move, while we decide to push it, or get rid of it
-        int drain = currentCap -> b - currentMove.b; //drain is the difference between the current capacity of jug A - the state of jug A
+        int drain = currentCap.b - currentMove.b; //drain is the difference between the current capacity of jug A - the state of jug A
         if(drain > currentMove.a){
             currentMove.b = (currentMove.b + top.a); // if the difference between the two jugs
             currentMove.a = 0;
         }
     else{
         currentMove.a = (currentMove.a - drain); // actually make the move 
-        currentMove.b = currentCap -> b; 
+        currentMove.b = currentCap.b; 
     }
     // check if we have been here before 
     if(map[currentMove.getA()][currentMove.getB()] == false){
@@ -178,29 +178,29 @@ while(!(instructions.empty())){
         if(drain == 1 || top.a == 1){ // check if the move has one gallon 
             // add direction to our queue Condition: 1 gallon moving 
             currentMove.directions.push_back("Pour 1 gallon from C to A. " + currentMove.to_string());
-            instructions.push(currentMove);
+            inions.push(currentMove);
         }
         else{
             // add direction to our queue, Condition : more than one gallon
             currentMove.directions.push_back("Pour " + to_string(min(drain, top.a)) + " gallons from C to A. " + currentMove.to_string());
-            instructions.push(currentMove);
+            inions.push(currentMove);
     }
     }
 }
-//C -> A    :   B -> C
+//C.A    :   B.C
 //c=b
 //a=c
 //5) Pour from B to C
-    if(top.b > 0 && (currentCap -> c - top.c) > 0){
+    if(top.b > 0 && (currentCap.c - top.c) > 0){
         State currentMove = top; //variable used to hold the current move, while we decide to push it, or get rid of it
-        int drain = currentCap -> c - currentMove.c; //drain is the difference between the current capacity of jug A - the state of jug A
+        int drain = currentCap.c - currentMove.c; //drain is the difference between the current capacity of jug A - the state of jug A
         if(drain > currentMove.b){
             currentMove.c = (currentMove.c + top.b); // if the difference between the two jugs
             currentMove.b = 0;
         }
     else{
         currentMove.b = (currentMove.b - drain); // actually make the move 
-        currentMove.a = currentCap -> c; 
+        currentMove.a = currentCap.c; 
     }
     // check if we have been here before 
     if(map[currentMove.getA()][currentMove.getB()] == false){
@@ -208,29 +208,29 @@ while(!(instructions.empty())){
         if(drain == 1 || top.b == 1){ // check if the move has one gallon 
             // add direction to our queue Condition: 1 gallon moving 
             currentMove.directions.push_back("Pour 1 gallon from C to A. " + currentMove.to_string());
-            instructions.push(currentMove);
+            inions.push(currentMove);
         }
         else{
             // add direction to our queue, Condition : more than one gallon
             currentMove.directions.push_back("Pour " + to_string(min(drain, top.b)) + " gallons from C to A. " + currentMove.to_string());
-            instructions.push(currentMove);
+            inions.push(currentMove);
     }
     }
 }
-//B -> C    :   A -> C
+//B.C    :   A.C
 //b=a
 //c=c
 //6) Pour from A to C
-    if(top.a > 0 && (currentCap -> c - top.c) > 0){
+    if(top.a > 0 && (currentCap.c - top.c) > 0){
         State currentMove = top; //variable used to hold the current move, while we decide to push it, or get rid of it
-        int drain = currentCap -> c - currentMove.c; //drain is the difference between the current capacity of jug A - the state of jug A
+        int drain = currentCap.c - currentMove.c; //drain is the difference between the current capacity of jug A - the state of jug A
         if(drain > currentMove.a){
             currentMove.c = (currentMove.c + top.a); // if the difference between the two jugs
             currentMove.a = 0;
         }
     else{
         currentMove.a = (currentMove.a - drain); // actually make the move 
-        currentMove.a = currentCap -> c; 
+        currentMove.a = currentCap.c; 
     }
     // check if we have been here before 
     if(map[currentMove.getA()][currentMove.getB()] == false){
@@ -238,12 +238,12 @@ while(!(instructions.empty())){
         if(drain == 1 || top.a == 1){ // check if the move has one gallon 
             // add direction to our queue Condition: 1 gallon moving 
             currentMove.directions.push_back("Pour 1 gallon from C to A. " + currentMove.to_string());
-            instructions.push(currentMove);
+            inions.push(currentMove);
         }
         else{
             // add direction to our queue, Condition : more than one gallon
             currentMove.directions.push_back("Pour " + to_string(min(drain, top.a)) + " gallons from C to A. " + currentMove.to_string());
-            instructions.push(currentMove);
+            inions.push(currentMove);
     }
     }
 }
@@ -257,21 +257,25 @@ while(!(instructions.empty())){
 
 
 //find solution function
-void solve(struct State* currentCap, struct State* finish){
+void solve(vector<int> input){
     vector<string> directions;
-    State start(0,0,currentCap -> getC(),directions);
+    
+    State final(input[3], input[4], input[5], directions);
+    State begin(0, 0, cC, directions);
+    State currentCap(input[0], input[1], input[2], directions);
+
     //makes visited array 
-    bool** map = new bool*[currentCap -> getA()];
-    for(int i=0; i<currentCap -> getA();i++){
-        map[i]= new bool[currentCap -> getB()];
-        fill(map[i], map[i]+currentCap -> getB(),false);
+    bool** map = new bool*[currentCap.getA()];
+    for(int i=0; i<currentCap.getA();i++){
+        map[i]= new bool[currentCap.getB()];
+        fill(map[i], map[i]+currentCap.getB(),false);
     }
     //call BFS for all the given peramaters
     //then print the output;
     finish = paths(start,currentCap,finish,map);
-    finish -> out(); 
+    finish.out(); 
     //deletes the visted array
-    for(int i=0; i<currentCap -> getB();i++){
+    for(int i=0; i<currentCap.getB();i++){
         delete[] map[i];
     }
     delete[] map; 
@@ -387,11 +391,12 @@ int main(int argc, char *const argv[])
         //call waterjug
         //top by initalizing our 3 states. Where we start. What our capacities are and our final goal to fulfill
         // State *top = new State(0, 0, stoi(argv[3]));                              // top
-        struct State * currentCap = new struct State(stoi(argv[1]), stoi(argv[2]), stoi(argv[3]),directs); //cap of jugs
-        struct State * finish = new struct State(stoi(argv[4]), stoi(argv[5]), stoi(argv[6]),directs);     // goals to find
+        //  State currentCap = new  State(stoi(argv[1]), stoi(argv[2]), stoi(argv[3]),directs); //cap of jugs
+        //  State finish = new  State(stoi(argv[4]), stoi(argv[5]), stoi(argv[6]),directs);     // goals to find
         //call methods
         //as said in class we need to find all possible paths to find the answer and then BFS to get the solution
-        solve(currentCap, finish);
+        vector<int> input = {cA,cB,cC,gA,gB,gC};
+        solve(input);
         cout << "works" << endl;
         return 0;
     }
