@@ -62,7 +62,7 @@ struct State paths(struct State begin, struct State currentCap, struct State fin
 queue<State> instructions; // initalize temp array(queue) to store instructions
 begin.directions.push_back("Inital state. "+begin.to_string()); //put inital instruction in the directions vector
 instructions.push(begin); // push initial state to the queue 
-while(!(instructions.empty)){
+while(!(instructions.empty())){
     top = instructions.front();
     top.pop();
 
