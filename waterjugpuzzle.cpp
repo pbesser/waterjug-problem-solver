@@ -263,7 +263,7 @@ void solve(struct State currentCap, struct State finish){
     //makes visited array 
     bool** map = new bool[currentCap.getA()];
     for(int i=0; i<currentCap.getA()+1;i++){
-        map[i]= new bool[currentCap.getB()+1];
+        map[i]= new bool*[currentCap.getB()+1];
         fill(map[i], map[i]+currentCap.getB(),false);
     }
     //call BFS for all the given peramaters
@@ -400,3 +400,4 @@ int main(int argc, char *const argv[])
         cerr << "Error: Total gallons in goal state must be equal to the capacity of jug C." << endl;
         return 1;
     }
+}
