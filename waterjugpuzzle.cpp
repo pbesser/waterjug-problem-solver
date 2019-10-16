@@ -133,7 +133,7 @@ while(!(instructions.empty)){
 //3) Pour from C to B
     if(top.c > 0 && (currentcap.b - top.b) > 0){
         State currentMove = top; //variable used to hold the current move, while we decide to push it, or get rid of it
-        int drain = currentcap.b - currentMove.b; //drain is the difference between the current capacity of jug A - the state of jug A
+        int drain = currentcap.b - currentMove.getB; //drain is the difference between the current capacity of jug A - the state of jug A
         if(drain > currentMove.c){
             currentMove.b = (currentMove.b + top.c); // if the difference between the two jugs
             currentMove.c = 0;
@@ -143,8 +143,8 @@ while(!(instructions.empty)){
         currentMove.b = currentCap.b; 
     }
     // check if we have been here before 
-    if(map[currentMove.getA()][currentMove.getB()] == false){
-        map[currentMove.getA()][currentMove.getB()] == true;
+    if(map[currentMove.getA][currentMove.getB] == false){
+        map[currentMove.getA][currentMove.getB] == true;
         if(drain == 1 || top.c == 1){ // check if the move has one gallon 
             // add direction to our queue Condition: 1 gallon moving 
             currentMove.directions.push_back("Pour 1 gallon from C to A. " + currentMove.to_string());
