@@ -249,6 +249,7 @@ while(!(instructions.empty)){
 }
 
 }
+}
     top.directions.clear();
     top.directions.push_back("No solution.");
     return top;
