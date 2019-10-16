@@ -57,10 +57,11 @@ struct State
 };
 
 // breadth first search
-struct State paths(struct State begin, struct State currentCap, struct State finish, vector<string> directions, bool ** map){
+struct State paths(struct State top, struct State currentCap, struct State finish, vector<string> directions, bool ** map){
 // BFS for our jugs
 queue<State> instructions; // initalize temp array(queue) to store instructions
 begin.directions.push_back("Inital state. "+begin.to_string()); //put inital instruction in the directions vector
+map[top.a][top.b] = true;
 instructions.push(begin); // push initial state to the queue 
 while(!(instructions.empty())){
     top = instructions.front();
