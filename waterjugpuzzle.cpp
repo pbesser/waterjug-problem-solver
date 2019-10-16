@@ -16,11 +16,10 @@ using namespace std;
 // Struct to represent state of water in the jugs.
 struct State
 {
-    struct State parent;
     int a, b, c;
     vector<string> directions;
 
-    State(int _a, int _b, int _c, vector<string> _directions, struct State parent) : a(_a), b(_b), c(_c), directions(_directions),struct State(_parent) {}
+    State(int _a, int _b, int _c, vector<string> _directions,) : a(_a), b(_b), c(_c), directions(_directions)) {}
 
     // String representation of state in tuple form.
     string to_string()
