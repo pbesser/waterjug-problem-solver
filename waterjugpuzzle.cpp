@@ -26,7 +26,7 @@ struct State
     string to_string()
     {
         ostringstream oss;
-        oss << "(" << a << ", " << b << ", " << c << ")";
+        oss << "(" << a << ", " << b << ", " << c << ")";  
         return oss.str();
     }
     // to compare different states to one another which will eventually be used to check if we have reached an asnwer
@@ -50,7 +50,7 @@ struct State
 };
 
 bool** createGrid(int x, int y) {
-    bool**map = new bool*[getA()];
+    bool**map = new bool*[State.getA()];
     for (int i = 0; i < x; i++){
         map[i] = new bool[b];
         fill(map[i], map[i] + y,false);
