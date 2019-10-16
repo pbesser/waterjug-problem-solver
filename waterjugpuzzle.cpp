@@ -272,7 +272,7 @@ void solve(vector<int> input){
     }
     //call BFS for all the given peramaters
     //then print the output;
-    finish = paths(start,currentCap,finish,map);
+    finish = paths(begin,currentCap,finish,map);
     finish.out(); 
     //deletes the visted array
     for(int i=0; i<currentCap.getB();i++){
