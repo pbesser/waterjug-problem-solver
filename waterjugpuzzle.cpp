@@ -83,8 +83,8 @@ while(!(instructions.empty())){
         currentMove.a = currentCap.a; 
     }
     // check if we have been here before 
-    if(map[currentMove.a][currentMove.b] == false){
-        map[currentMove.a][currentMove.b] == true;
+    if(map[currentMove.getA()][currentMove.getB()] == false){
+        map[currentMove.getA()][currentMove.getB()] == true;
         if(drain == 1 || top.c == 1){ // check if the move has one gallon 
             // add direction to our queue Condition: 1 gallon moving 
             currentMove.directions.push_back("Pour 1 gallon from C to A. " + currentMove.to_string());
@@ -112,8 +112,8 @@ while(!(instructions.empty())){
         currentMove.a = currentCap.a; 
     }
     // check if we have been here before 
-    if(map[currentMove.a][currentMove.b] == false){
-        map[currentMove.a][currentMove.b] == true;
+    if(map[currentMove.getA()][currentMove.b()] == false){
+        map[currentMove.a()][currentMove.b()] == true;
         if(drain == 1 || top.b == 1){ // check if the move has one gallon 
             // add direction to our queue Condition: 1 gallon moving 
             currentMove.directions.push_back("Pour 1 gallon from C to A. " + currentMove.to_string());
@@ -143,8 +143,8 @@ while(!(instructions.empty())){
         currentMove.b = currentCap.b; 
     }
     // check if we have been here before 
-    if(map[currentMove.getA][currentMove.getB] == false){
-        map[currentMove.getA][currentMove.getB] == true;
+    if(map[currentMove.getA()][currentMove.getB()] == false){
+        map[currentMove.getA()][currentMove.getB()] == true;
         if(drain == 1 || top.c == 1){ // check if the move has one gallon 
             // add direction to our queue Condition: 1 gallon moving 
             currentMove.directions.push_back("Pour 1 gallon from C to A. " + currentMove.to_string());
@@ -173,8 +173,8 @@ while(!(instructions.empty())){
         currentMove.b = currentCap.b; 
     }
     // check if we have been here before 
-    if(map[currentMove.a][currentMove.b] == false){
-        map[currentMove.a][currentMove.b] == true;
+    if(map[currentMove.getA()][currentMove.getB()] == false){
+        map[currentMove.getA()][currentMove.getB()] == true;
         if(drain == 1 || top.a == 1){ // check if the move has one gallon 
             // add direction to our queue Condition: 1 gallon moving 
             currentMove.directions.push_back("Pour 1 gallon from C to A. " + currentMove.to_string());
@@ -203,8 +203,8 @@ while(!(instructions.empty())){
         currentMove.a = currentCap.c; 
     }
     // check if we have been here before 
-    if(map[currentMove.a][currentMove.b] == false){
-        map[currentMove.a][currentMove.b] == true;
+    if(map[currentMove.getA()][currentMove.getB()] == false){
+        map[currentMove.getA()][currentMove.getB()] == true;
         if(drain == 1 || top.b == 1){ // check if the move has one gallon 
             // add direction to our queue Condition: 1 gallon moving 
             currentMove.directions.push_back("Pour 1 gallon from C to A. " + currentMove.to_string());
@@ -233,8 +233,8 @@ while(!(instructions.empty())){
         currentMove.a = currentCap.c; 
     }
     // check if we have been here before 
-    if(map[currentMove.a][currentMove.b] == false){
-        map[currentMove.a][currentMove.b] == true;
+    if(map[currentMove.getA()][currentMove.getB()] == false){
+        map[currentMove.getA()][currentMove.getB()] == true;
         if(drain == 1 || top.a == 1){ // check if the move has one gallon 
             // add direction to our queue Condition: 1 gallon moving 
             currentMove.directions.push_back("Pour 1 gallon from C to A. " + currentMove.to_string());
