@@ -69,7 +69,7 @@ while(!(directions.empty())){
     directions.pop();
 
      if (top.a == finish.a && top.b == finish.b && top.c == finish.c){
-            return curr;
+            return top;
         }//checks if C can pour into A
     //1) Pour from C to A
     if(top.c > 0 && (currentCap.a - top.a) > 0){
