@@ -387,8 +387,8 @@ int main(int argc, char *const argv[])
         //call waterjug
         //top by initalizing our 3 states. Where we start. What our capacities are and our final goal to fulfill
         // State *top = new State(0, 0, stoi(argv[3]));                              // top
-        struct State *currentCap = new struct State(stoi(argv[1]), stoi(argv[2]), stoi(argv[3]),directs); //cap of jugs
-        struct State *finish = new struct State(stoi(argv[4]), stoi(argv[5]), stoi(argv[6]),directs);     // goals to find
+        struct State currentCap = new struct State(stoi(argv[1]), stoi(argv[2]), stoi(argv[3]),directs); //cap of jugs
+        struct State finish = new struct State(stoi(argv[4]), stoi(argv[5]), stoi(argv[6]),directs);     // goals to find
         //call methods
         //as said in class we need to find all possible paths to find the answer and then BFS to get the solution
         solve(currentCap, finish);
