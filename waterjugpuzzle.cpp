@@ -57,7 +57,7 @@ struct State
 };
 
 // breadth first search
-struct State paths(struct State* begin, struct State* currentCap, struct State* finish, vector<string> directions, bool ** map){
+struct State paths(struct State begin, struct State currentCap, struct State finish, vector<string> directions, bool ** map){
 // BFS for our jugs
 queue<State> instructions; // initalize temp array(queue) to store instructions
 begin.directions.push_back("Inital state. "+begin.to_string()); //put inital instruction in the directions vector
@@ -256,7 +256,7 @@ while(!(instructions.empty)){
 
 
 //find solution function
-void solve(struct State* currentCap, struct State* finish){
+void solve(struct State currentCap, struct State finish){
     vector<string> directions;
     State start(0,0,currentCap.getC(),directions);
     //makes visited array 
