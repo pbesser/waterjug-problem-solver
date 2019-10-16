@@ -20,7 +20,7 @@ struct State
     int a, b, c;
     vector<string> directions;
 
-    State(int _a, int _b, int _c, vector<string> _directions) : a(_a), b(_b), c(_c), directions(_directions) {}
+    State(int _a, int _b, int _c, vector<string> _directions, struct State parent) : a(_a), b(_b), c(_c), directions(_directions),struct State(_parent) {}
 
     // String representation of state in tuple form.
     string to_string()
@@ -49,17 +49,17 @@ struct State
       }
 };
 
-bool** createGrid(int x, int y) {
-    bool**map = new bool*[State.getA()];
-    for (int i = 0; i < x; i++){
-        map[i] = new bool[b];
-        fill(map[i], map[i] + y,false);
-    }
-    return map;
-}
+// bool** createGrid(int x, int y) {
+//     bool**map = new bool*[State.getA()];
+//     for (int i = 0; i < x; i++){
+//         map[i] = new bool[b];
+//         fill(map[i], map[i] + y,false);
+//     }
+//     return map;
+// }
 
 struct State paths(struct State* begin, struct State* currentCap, struct State* finish, vector<string> directions, bool ** visited){
-// BFS for our jugs 
+// BFS for our jugs
 queue<State> instructions; // initalize temp array(queue) to store instructions
 begin.directions.push_back("Inital state. "+begin.to_string()); //put inital instruction in the directions vector
 instructions.push(begin); // push initial state to the queue 
@@ -71,7 +71,7 @@ while(!(instructions.empty)){
         return top; // end condition 
     }
     //1) Pour from C to A
-    if(top.c > 0 && (currentcap.a - top.a) > 0){
+    if(top.c > 0 && (currentCap.a - top.a) > 0){
         state currentMove = top; //variable used to hold the current move, while we decide to push it, or get rid of it
         int drain = currentcap.a - currentMove.a; //drain is the difference between the current capacity of jug A - the state of jug A
         if(drain > currentMove.c){
@@ -257,8 +257,16 @@ while(!(instructions.empty)){
 void solve(struct State* currentCap, struct State* finish){
     vector<string> directions; // initalize directions
     State* start = new State(0,0, currentCap.getC()); // initalize instructions
-    bool** visited = createGrid(currentCap.getA()+1,currentCap.getB()+1);
+    //bool** visited = createGrid(currentCap.getA()+1,currentCap.getB()+1);
+    
+    bool**visited = new bool*[State.getA()];
+    for (int i = 0; i < x; i++){
+        visited[i] = new bool[b];
+        fill(visited[i], visited[i] + y,false);
+    }
+    
     finish = paths(start,currentCap,finish,directions,visited);
+    
     finish.print();
      for (int i = 0; i < capB; i++){ // when done delete the array to prevent memory leaks
         delete [] checked[i];
@@ -266,6 +274,10 @@ void solve(struct State* currentCap, struct State* finish){
     delete [] checked; // delete arrays
     // done   
 }
+
+
+
+
 
 int main(int argc, char *const argv[])
 { //MAIN METHOD
@@ -374,8 +386,8 @@ int main(int argc, char *const argv[])
         //call waterjug
         //begin by initalizing our 3 states. Where we start. What our capacities are and our final goal to fulfill
         // State *begin = new State(0, 0, stoi(argv[3]));                              // begin
-        struct State *currentCap = new struct State(stoi(argv[1]), stoi(argv[2]), stoi(argv[3])); //cap of jugs
-        struct State *finish = new struct State(stoi(argv[4]), stoi(argv[5]), stoi(argv[6]));     // goals to find
+        struct State *currentCap = new struct State(stoi(argv[1]), stoi(argv[2]), stoi(argv[3]),null); //cap of jugs
+        struct State *finish = new struct State(stoi(argv[4]), stoi(argv[5]), stoi(argv[6]),null);     // goals to find
         //call methods
         //as said in class we need to find all possible paths to find the answer and then BFS to get the solution
         solve(currentCap, finish);
@@ -387,6 +399,7 @@ int main(int argc, char *const argv[])
         cerr << "Error: Total gallons in goal state must be equal to the capacity of jug C." << endl;
         return 1;
     }
+    //parent current path 
 
     // istringstream iss; //initalize istringstream object
     // int c1,c2,c3; //initalize comparison integer variables
