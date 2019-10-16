@@ -6,7 +6,7 @@
  * Description : Solves the famous water jug puzzle using breadth-first search 
  * Pledge      : I pledge my honor that I have abided by the Stevens Honor System.
  ******************************************************************************/
-// importss
+// imports
 #include <iostream>
 #include <sstream>
 #include <vector>
