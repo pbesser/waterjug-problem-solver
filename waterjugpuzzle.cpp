@@ -73,7 +73,7 @@ while(!(instructions.empty())){
     //1) Pour from C to A
     if(top.c > 0 && (currentCap.a - top.a) > 0){
         State currentMove = top; //variable used to hold the current move, while we decide to push it, or get rid of it
-        int drain = currentCap.a - currentMove.a; //drain is the difference between the current capacity of jug A - the state of jug A
+        int drain = currentCap.getA() - currentMove.getA(); //drain is the difference between the current capacity of jug A - the state of jug A
         if(drain > currentMove.c){
             currentMove.a = (currentMove.a + top.c); // if the difference between the two jugs 
             currentMove.c = 0;
@@ -102,7 +102,7 @@ while(!(instructions.empty())){
 //2) Pour from B to A
     if(top.b > 0 && (currentCap.a - top.a) > 0){
         State currentMove = top; //variable used to hold the current move, while we decide to push it, or get rid of it
-        int drain = currentCap.a - currentMove.a; //drain is the difference between the current capacity of jug A - the state of jug A
+        int drain = currentCap.getA() - currentMove.getA(); //drain is the difference between the current capacity of jug A - the state of jug A
         if(drain > currentMove.b){
             currentMove.a = (currentMove.a + top.b); // if the difference between the two jugs
             currentMove.b = 0;
@@ -133,7 +133,7 @@ while(!(instructions.empty())){
 //3) Pour from C to B
     if(top.c > 0 && (currentCap.b - top.b) > 0){
         State currentMove = top; //variable used to hold the current move, while we decide to push it, or get rid of it
-        int drain = currentCap.b - currentMove.getB; //drain is the difference between the current capacity of jug A - the state of jug A
+        int drain = currentCap.getB() - currentMove.getB(); //drain is the difference between the current capacity of jug A - the state of jug A
         if(drain > currentMove.c){
             currentMove.b = (currentMove.b + top.c); // if the difference between the two jugs
             currentMove.c = 0;
