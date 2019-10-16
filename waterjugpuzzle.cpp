@@ -255,21 +255,23 @@ while(!(inions.empty())){
     return top;
 }
 
-
-//find solution function
-void solve(vector<int> input){
-    vector<string> directions;
-    
-    State finish(input[3], input[4], input[5], directions);
-    State begin(0, 0, input[2], directions);
-    State currentCap(input[0], input[1], input[2], directions);
-
-    //makes visited array 
+//makes visited array 
     bool** map = new bool*[currentCap.getA()];
     for(int i=0; i<currentCap.getA();i++){
         map[i]= new bool[currentCap.getB()];
         fill(map[i], map[i]+currentCap.getB(),false);
     }
+    return map;
+    
+//find solution function
+void solve(vector<int> input){
+    vector<string> directions;
+//could not convert ‘map’ from ‘bool**’ to ‘std::vector<std::__cxx11::basic_string<char> >’
+    State finish(input[3], input[4], input[5], directions);
+    State begin(0, 0, input[2], directions);
+    State currentCap(input[0], input[1], input[2], directions);
+
+    
     //call BFS for all the given peramaters
     //then print the output;
     finish = paths(begin,currentCap,finish,map);
