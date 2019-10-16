@@ -57,7 +57,7 @@ struct State
 };
 
 // breadth first search
-struct State paths(struct State top, struct State currentCap, struct State finish, vector<string> directions, bool ** map){
+struct State paths(struct State top, struct State currentCap, struct State finish, vector<string> directions, bool** map){
 // BFS for our jugs
 queue<State> instructions; // initalize temp array(queue) to store instructions
 top.directions.push_back("Inital state. "+top.to_string()); //put inital instruction in the directions vector
@@ -261,7 +261,7 @@ void solve(struct State currentCap, struct State finish){
     vector<string> directions;
     State start(0,0,currentCap.getC(),directions);
     //makes visited array 
-    bool** map = new bool*[State.getA()];
+    bool** map = new bool*[currentCap.getA()];
     for(int i=0; i<currentCap.getA()+1;i++){
         map[i]= new bool[currentCap.getB()+1];
         fill(map[i], map[i]+currentCap.getB(),false);
@@ -271,7 +271,7 @@ void solve(struct State currentCap, struct State finish){
     finish = paths(start,currentCap,finish,map);
     finish.out(); 
     //deletes the visted array
-    for(int i=0; i<capB;i++){
+    for(int i=0; i<currentCap.getB();i++){
         delete[] checked[i];
     }
     delete[] checked; 
