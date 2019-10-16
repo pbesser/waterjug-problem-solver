@@ -49,18 +49,7 @@ struct State
 };
 
 
-void solve(struct State* currentCap, struct State* finish){
-    vector<string> directions; // initalize directions
-    State* start = new State(0,0, currentCap.getC()); // initalize instructions
-    new bool ** visited = createGrid(currentCap.getA()+1,currentCap.getB()+1);
-    finish = paths(start,currentCap,finish,directions,visited);
-    finish.print();
-     for (int i = 0; i < capB; i++){ // when done delete the array to prevent memory leaks
-        delete [] checked[i];
-    }
-    delete [] checked; // delete arrays
-    // done   
-}
+
 
 bool** createGrid(int x, int y) {
     bool**visit = new bool*[a];
@@ -111,6 +100,7 @@ while(!(instructions.empty)){
     }
     }
 } 
+
 
 //2) Pour from B to A
     if(top.b > 0 && (currentcap.a - top.a) > 0){
@@ -266,6 +256,18 @@ else{cout << "No solution." << endl;} // final condition that returns no solutio
 
 }
 
+void solve(struct State* currentCap, struct State* finish){
+    vector<string> directions; // initalize directions
+    State* start = new State(0,0, currentCap.getC()); // initalize instructions
+    new bool** visited = createGrid(currentCap.getA()+1,currentCap.getB()+1);
+    finish = paths(start,currentCap,finish,directions,visited);
+    finish.print();
+     for (int i = 0; i < capB; i++){ // when done delete the array to prevent memory leaks
+        delete [] checked[i];
+    }
+    delete [] checked; // delete arrays
+    // done   
+}
 
 int main(int argc, char *const argv[])
 { //MAIN METHOD
