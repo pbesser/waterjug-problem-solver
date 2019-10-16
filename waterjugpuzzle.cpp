@@ -260,7 +260,7 @@ while(!(inions.empty())){
 void solve(vector<int> input){
     vector<string> directions;
     
-    State final(input[3], input[4], input[5], directions);
+    State finish(input[3], input[4], input[5], directions);
     State begin(0, 0, input[2], directions);
     State currentCap(input[0], input[1], input[2], directions);
 
