@@ -31,7 +31,7 @@ struct State
     }
     // to compare different states to one another which will eventually be used to check if we have reached an asnwer
       int compareTo(State &temp){
-          if(a == temp.a and  b == temp.b and c == temp.c){
+          if(a == temp.getA() and  b == temp.getB() and c == temp.getC()){
                 return 0;
       }
           else{
@@ -261,7 +261,7 @@ void solve(struct State* currentCap, struct State* finish){
     vector<string> directions;
     State start(0,0,currentCap -> getC(),directions);
     //makes visited array 
-    bool** map = new bool*[currentCap -> getA()];
+    bool** map = new bool*[curren ntCap -> getA()];
     for(int i=0; i<currentCap -> getA();i++){
         map[i]= new bool[currentCap -> getB()];
         fill(map[i], map[i]+currentCap -> getB(),false);
