@@ -65,7 +65,7 @@ map[top.a][top.b] = true;
 instructions.push(top); // push initial state to the queue 
 while(!(instructions.empty())){
     top = instructions.front();
-    top.pop();
+    instructions.pop();
 
     if(top.compareTo(finish)==0){
         return top; // end condition 
