@@ -73,7 +73,7 @@ while(!(instructions.empty)){
     //1) Pour from C to A
     if(top.c > 0 && (currentCap.a - top.a) > 0){
         State currentMove = top; //variable used to hold the current move, while we decide to push it, or get rid of it
-        int drain = currentcap.a - currentMove.a; //drain is the difference between the current capacity of jug A - the state of jug A
+        int drain = currentCap.a - currentMove.a; //drain is the difference between the current capacity of jug A - the state of jug A
         if(drain > currentMove.c){
             currentMove.a = (currentMove.a + top.c); // if the difference between the two jugs 
             currentMove.c = 0;
@@ -100,9 +100,9 @@ while(!(instructions.empty)){
 
 
 //2) Pour from B to A
-    if(top.b > 0 && (currentcap.a - top.a) > 0){
+    if(top.b > 0 && (currentCap.a - top.a) > 0){
         State currentMove = top; //variable used to hold the current move, while we decide to push it, or get rid of it
-        int drain = currentcap.a - currentMove.a; //drain is the difference between the current capacity of jug A - the state of jug A
+        int drain = currentCap.a - currentMove.a; //drain is the difference between the current capacity of jug A - the state of jug A
         if(drain > currentMove.b){
             currentMove.a = (currentMove.a + top.b); // if the difference between the two jugs
             currentMove.b = 0;
@@ -131,9 +131,9 @@ while(!(instructions.empty)){
 //a=b
 //keep c
 //3) Pour from C to B
-    if(top.c > 0 && (currentcap.b - top.b) > 0){
+    if(top.c > 0 && (currentCap.b - top.b) > 0){
         State currentMove = top; //variable used to hold the current move, while we decide to push it, or get rid of it
-        int drain = currentcap.b - currentMove.getB; //drain is the difference between the current capacity of jug A - the state of jug A
+        int drain = currentCap.b - currentMove.getB; //drain is the difference between the current capacity of jug A - the state of jug A
         if(drain > currentMove.c){
             currentMove.b = (currentMove.b + top.c); // if the difference between the two jugs
             currentMove.c = 0;
@@ -161,9 +161,9 @@ while(!(instructions.empty)){
 //c=a
 //a=b
 //4) Pour from A to B
-    if(top.c > 0 && (currentcap.b - top.b) > 0){
+    if(top.c > 0 && (currentCap.b - top.b) > 0){
         State currentMove = top; //variable used to hold the current move, while we decide to push it, or get rid of it
-        int drain = currentcap.b - currentMove.b; //drain is the difference between the current capacity of jug A - the state of jug A
+        int drain = currentCap.b - currentMove.b; //drain is the difference between the current capacity of jug A - the state of jug A
         if(drain > currentMove.a){
             currentMove.b = (currentMove.b + top.a); // if the difference between the two jugs
             currentMove.a = 0;
@@ -191,9 +191,9 @@ while(!(instructions.empty)){
 //c=b
 //a=c
 //5) Pour from B to C
-    if(top.b > 0 && (currentcap.c - top.c) > 0){
+    if(top.b > 0 && (currentCap.c - top.c) > 0){
         State currentMove = top; //variable used to hold the current move, while we decide to push it, or get rid of it
-        int drain = currentcap.c - currentMove.c; //drain is the difference between the current capacity of jug A - the state of jug A
+        int drain = currentCap.c - currentMove.c; //drain is the difference between the current capacity of jug A - the state of jug A
         if(drain > currentMove.b){
             currentMove.c = (currentMove.c + top.b); // if the difference between the two jugs
             currentMove.b = 0;
@@ -221,9 +221,9 @@ while(!(instructions.empty)){
 //b=a
 //c=c
 //6) Pour from A to C
-    if(top.a > 0 && (currentcap.c - top.c) > 0){
+    if(top.a > 0 && (currentCap.c - top.c) > 0){
         State currentMove = top; //variable used to hold the current move, while we decide to push it, or get rid of it
-        int drain = currentcap.c - currentMove.c; //drain is the difference between the current capacity of jug A - the state of jug A
+        int drain = currentCap.c - currentMove.c; //drain is the difference between the current capacity of jug A - the state of jug A
         if(drain > currentMove.a){
             currentMove.c = (currentMove.c + top.a); // if the difference between the two jugs
             currentMove.a = 0;
