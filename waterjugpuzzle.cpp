@@ -10,6 +10,7 @@
 #include <iostream>
 #include <sstream>
 #include <vector>
+#include <algorith>
 #include <stdlib.h>
 #include <queue>
 
@@ -67,9 +68,9 @@ while(!(directions.empty())){
     top = directions.front();
     directions.pop();
 
-    if(top.compareTo(finish)==0){
-        return top; // end condition 
-    }
+     if (top.a == finish.a && top.b == finish.b && top.c == finish.c){
+            return curr;
+        }//checks if C can pour into A
     //1) Pour from C to A
     if(top.c > 0 && (currentCap.a - top.a) > 0){
         State currentMove = top; //variable used to hold the current move, while we decide to push it, or get rid of it
@@ -278,7 +279,7 @@ void solve(vector<int> input){
     
     //call BFS for all the given peramaters
     //then print the output;
-    //error: could not convert ‘map’ from ‘bool**’ to ‘std::vector<std::__cxx11::basic_string<char> >’
+    //error: could not convert ‘map’ from ‘bool**’ to ‘std::vector<std::__cxx11::basic_string<char> >’  
     finish = paths(begin,currentCap,finish,map);
     finish.out(); 
     //deletes the visted array
