@@ -256,12 +256,14 @@ while(!(inions.empty())){
 }
 
 //makes visited array 
-    bool** map = new bool*[currentCap.getA()];
-    for(int i=0; i<currentCap.getA();i++){
-        map[i]= new bool[currentCap.getB()];
-        fill(map[i], map[i]+currentCap.getB(),false);
+    bool** makeMatrix(int a, int b) {
+    bool ** map = new bool*[a];
+    for (int i = 0; i < a; i++){
+        map[i] = new bool[b];
+        fill(map[i], map[i] + b,false);
     }
     return map;
+}
     
 //find solution function
 void solve(vector<int> input){
@@ -270,7 +272,7 @@ void solve(vector<int> input){
     State finish(input[3], input[4], input[5], directions);
     State begin(0, 0, input[2], directions);
     State currentCap(input[0], input[1], input[2], directions);
-
+    bool ** map = makeMatrix(input[0] + 1, input[1] + 1);
     
     //call BFS for all the given peramaters
     //then print the output;
