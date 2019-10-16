@@ -11,6 +11,7 @@
 #include <sstream>
 #include <vector>
 #include <stdlib.h>
+#include <queue>
 
 using namespace std;
 //struct state
@@ -39,7 +40,7 @@ struct State
       }
 
     void out(){
-        for(int x = 0; x < directions.size();x++){
+        for(unsigned int x = 0; x < directions.size();x++){
             cout << directions[x] << endl; 
         }
     }
