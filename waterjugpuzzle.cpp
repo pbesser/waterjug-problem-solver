@@ -272,9 +272,9 @@ void solve(struct State currentCap, struct State finish){
     finish.out(); 
     //deletes the visted array
     for(int i=0; i<currentCap.getB();i++){
-        delete[] checked[i];
+        delete[] map[i];
     }
-    delete[] checked; 
+    delete[] map; 
 }
 
 //main method that does input validation and calls solution function
