@@ -261,7 +261,7 @@ void solve(struct State* currentCap, struct State* finish){
     vector<string> directions;
     State start(0,0,currentCap -> getC(),directions);
     //makes visited array 
-    bool** map = new bool*[curren ntCap -> getA()];
+    bool** map = new bool*[currenntCap -> getA()];
     for(int i=0; i<currentCap -> getA();i++){
         map[i]= new bool[currentCap -> getB()];
         fill(map[i], map[i]+currentCap -> getB(),false);
