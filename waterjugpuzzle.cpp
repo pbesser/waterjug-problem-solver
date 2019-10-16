@@ -58,7 +58,7 @@ struct State
 //     return map;
 // }
 
-struct State paths(struct State* begin, struct State* currentCap, struct State* finish, vector<string> directions, bool ** visited){
+struct State paths(struct State* begin, struct State* currentCap, struct State* finish, vector<string> directions, bool ** map){
 // BFS for our jugs
 queue<State> instructions; // initalize temp array(queue) to store instructions
 begin.directions.push_back("Inital state. "+begin.to_string()); //put inital instruction in the directions vector
@@ -257,15 +257,15 @@ while(!(instructions.empty)){
 void solve(struct State* currentCap, struct State* finish){
     vector<string> directions; // initalize directions
     State* start = new State(0,0, currentCap.getC()); // initalize instructions
-    //bool** visited = createGrid(currentCap.getA()+1,currentCap.getB()+1);
+    //bool** visitedvisited = createGrid(currentCap.getA()+1,currentCap.getB()+1);
     
-    bool**visited = new bool*[State.getA()];
+    bool**map = new bool*[State.getA()];
     for (int i = 0; i < x; i++){
-        visited[i] = new bool[b];
-        fill(visited[i], visited[i] + y,false);
+        map[i] = new bool[b];
+        fill(map[i], map[i] + y,false);
     }
     
-    finish = paths(start,currentCap,finish,directions,visited);
+    finish = paths(start,currentCap,finish,directions,map);
     
     finish.print();
      for (int i = 0; i < capB; i++){ // when done delete the array to prevent memory leaks
