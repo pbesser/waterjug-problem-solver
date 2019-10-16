@@ -15,7 +15,7 @@
 
 using namespace std;
 // state
- State
+ struct State
 {
     int a, b, c;
     vector<string> directions;
