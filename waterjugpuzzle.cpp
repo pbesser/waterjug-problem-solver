@@ -259,7 +259,7 @@ while(!(instructions.empty())){
 //find solution function
 void solve(struct State* currentCap, struct State* finish){
     vector<string> directions;
-    State start(0,0,currentCap.getC(),directions);
+    State start(0,0,currentCap -> getC(),directions);
     //makes visited array 
     bool** map = new bool*[currentCap.getA()];
     for(int i=0; i<currentCap.getA();i++){
