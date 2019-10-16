@@ -60,9 +60,9 @@ struct State
 struct State paths(struct State top, struct State currentCap, struct State finish, vector<string> directions, bool ** map){
 // BFS for our jugs
 queue<State> instructions; // initalize temp array(queue) to store instructions
-begin.directions.push_back("Inital state. "+begin.to_string()); //put inital instruction in the directions vector
+top.directions.push_back("Inital state. "+top.to_string()); //put inital instruction in the directions vector
 map[top.a][top.b] = true;
-instructions.push(begin); // push initial state to the queue 
+instructions.push(top); // push initial state to the queue 
 while(!(instructions.empty())){
     top = instructions.front();
     top.pop();
@@ -385,8 +385,8 @@ int main(int argc, char *const argv[])
     {
         vector<string> directs;
         //call waterjug
-        //begin by initalizing our 3 states. Where we start. What our capacities are and our final goal to fulfill
-        // State *begin = new State(0, 0, stoi(argv[3]));                              // begin
+        //top by initalizing our 3 states. Where we start. What our capacities are and our final goal to fulfill
+        // State *top = new State(0, 0, stoi(argv[3]));                              // top
         struct State *currentCap = new struct State(stoi(argv[1]), stoi(argv[2]), stoi(argv[3]),directs); //cap of jugs
         struct State *finish = new struct State(stoi(argv[4]), stoi(argv[5]), stoi(argv[6]),directs);     // goals to find
         //call methods
