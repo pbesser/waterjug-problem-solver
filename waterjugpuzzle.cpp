@@ -16,6 +16,7 @@ using namespace std;
 // Struct to represent state of water in the jugs.
 struct State
 {
+    struct state parent;
     int a, b, c;
     vector<string> directions;
 
