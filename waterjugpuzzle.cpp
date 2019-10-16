@@ -261,17 +261,17 @@ void solve(struct State* currentCap, struct State* finish){
     vector<string> directions;
     State start(0,0,currentCap -> getC(),directions);
     //makes visited array 
-    bool** map = new bool*[currentCap.getA()];
-    for(int i=0; i<currentCap.getA();i++){
-        map[i]= new bool[currentCap.getB()];
-        fill(map[i], map[i]+currentCap.getB(),false);
+    bool** map = new bool*[currentCap -> getA()];
+    for(int i=0; i<currentCap -> getA();i++){
+        map[i]= new bool[currentCap -> getB()];
+        fill(map[i], map[i]+currentCap -> getB(),false);
     }
     //call BFS for all the given peramaters
     //then print the output;
     finish = paths(start,currentCap,finish,map);
-    finish.out(); 
+    finish -> out(); 
     //deletes the visted array
-    for(int i=0; i<currentCap.getB();i++){
+    for(int i=0; i<currentCap -> getB();i++){
         delete[] map[i];
     }
     delete[] map; 
