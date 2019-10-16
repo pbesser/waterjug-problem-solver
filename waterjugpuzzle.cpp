@@ -52,8 +52,7 @@ struct State
 
 
 bool** createGrid(int x, int y) {
-    bool**visit = new bool*[a];
-
+    bool**visit = new bool*[getA()];
     for (int i = 0; i < x; i++){
         grid[i] = new bool[b];
         fill(grid[i], grid[i] + y,false);
@@ -62,7 +61,7 @@ bool** createGrid(int x, int y) {
 }
 
 struct State paths(struct State* begin, struct State* currentCap, struct State* finish, vector<string> directions, bool ** visited){
-// BFS for our 
+// BFS for our jugs 
 queue<State> instructions; // initalize temp array(queue) to store instructions
 begin.directions.push_back("Inital state. "+begin.to_string()); //put inital instruction in the directions vector
 instructions.push(begin); // push initial state to the queue 
@@ -252,8 +251,9 @@ while(!(instructions.empty)){
 }
 
 }
-else{cout << "No solution." << endl;} // final condition that returns no solution
-
+    top.directions.clear();
+    top.directions.push_back("No solution.");
+    return top;
 }
 
 void solve(struct State* currentCap, struct State* finish){
