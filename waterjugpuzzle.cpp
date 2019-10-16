@@ -57,15 +57,15 @@ using namespace std;
 };
 
 // breadth first search
- State paths( State top,  State currentCap,  State finish, vector<string> directions, bool** map){
+ State paths( State top,  State currentCap,  State finish, bool** map){
 // BFS for our jugs
-queue<State> inions; // initalize temp array(queue) to store inions
+queue<State> directions; // initalize temp array(queue) to store directions
 top.directions.push_back("Inital state. "+top.to_string()); //put inital inion in the directions vector
 map[top.a][top.b] = true;
-inions.push(top); // push initial state to the queue 
-while(!(inions.empty())){
-    top = inions.front();
-    inions.pop();
+directions.push(top); // push initial state to the queue 
+while(!(directions.empty())){
+    top = directions.front();
+    directions.pop();
 
     if(top.compareTo(finish)==0){
         return top; // end condition 
@@ -88,12 +88,12 @@ while(!(inions.empty())){
         if(drain == 1 || top.c == 1){ // check if the move has one gallon 
             // add direction to our queue Condition: 1 gallon moving 
             currentMove.directions.push_back("Pour 1 gallon from C to A. " + currentMove.to_string());
-            inions.push(currentMove);
+            directions.push(currentMove);
         }
         else{
             // add direction to our queue, Condition : more than one gallon
             currentMove.directions.push_back("Pour " + to_string(min(drain, top.c)) + " gallons from C to A. " + currentMove.to_string());
-            inions.push(currentMove);
+            directions.push(currentMove);
     }
     }
 } 
@@ -117,12 +117,12 @@ while(!(inions.empty())){
         if(drain == 1 || top.b == 1){ // check if the move has one gallon 
             // add direction to our queue Condition: 1 gallon moving 
             currentMove.directions.push_back("Pour 1 gallon from C to A. " + currentMove.to_string());
-            inions.push(currentMove);
+            directions.push(currentMove);
         }
         else{
             // add direction to our queue, Condition : more than one gallon
             currentMove.directions.push_back("Pour " + to_string(min(drain, top.b)) + " gallons from C to A. " + currentMove.to_string());
-            inions.push(currentMove);
+            directions.push(currentMove);
     }
     }
 }
@@ -148,12 +148,12 @@ while(!(inions.empty())){
         if(drain == 1 || top.c == 1){ // check if the move has one gallon 
             // add direction to our queue Condition: 1 gallon moving 
             currentMove.directions.push_back("Pour 1 gallon from C to A. " + currentMove.to_string());
-            inions.push(currentMove);
+            directions.push(currentMove);
         }
         else{
             // add direction to our queue, Condition : more than one gallon
             currentMove.directions.push_back("Pour " + to_string(min(drain, top.c)) + " gallons from C to A. " + currentMove.to_string());
-            inions.push(currentMove);
+            directions.push(currentMove);
     }
     }
 
@@ -178,12 +178,12 @@ while(!(inions.empty())){
         if(drain == 1 || top.a == 1){ // check if the move has one gallon 
             // add direction to our queue Condition: 1 gallon moving 
             currentMove.directions.push_back("Pour 1 gallon from C to A. " + currentMove.to_string());
-            inions.push(currentMove);
+            directions.push(currentMove);
         }
         else{
             // add direction to our queue, Condition : more than one gallon
             currentMove.directions.push_back("Pour " + to_string(min(drain, top.a)) + " gallons from C to A. " + currentMove.to_string());
-            inions.push(currentMove);
+            directions.push(currentMove);
     }
     }
 }
@@ -208,12 +208,12 @@ while(!(inions.empty())){
         if(drain == 1 || top.b == 1){ // check if the move has one gallon 
             // add direction to our queue Condition: 1 gallon moving 
             currentMove.directions.push_back("Pour 1 gallon from C to A. " + currentMove.to_string());
-            inions.push(currentMove);
+            directions.push(currentMove);
         }
         else{
             // add direction to our queue, Condition : more than one gallon
             currentMove.directions.push_back("Pour " + to_string(min(drain, top.b)) + " gallons from C to A. " + currentMove.to_string());
-            inions.push(currentMove);
+            directions.push(currentMove);
     }
     }
 }
@@ -238,12 +238,12 @@ while(!(inions.empty())){
         if(drain == 1 || top.a == 1){ // check if the move has one gallon 
             // add direction to our queue Condition: 1 gallon moving 
             currentMove.directions.push_back("Pour 1 gallon from C to A. " + currentMove.to_string());
-            inions.push(currentMove);
+            directions.push(currentMove);
         }
         else{
             // add direction to our queue, Condition : more than one gallon
             currentMove.directions.push_back("Pour " + to_string(min(drain, top.a)) + " gallons from C to A. " + currentMove.to_string());
-            inions.push(currentMove);
+            directions.push(currentMove);
     }
     }
 }
@@ -268,7 +268,9 @@ while(!(inions.empty())){
 //find solution function
 void solve(vector<int> input){
     vector<string> directions;
-//could not convert ‘map’ from ‘bool**’ to ‘std::vector<std::__cxx11::basic_string<char> >’
+
+
+
     State finish(input[3], input[4], input[5], directions);
     State begin(0, 0, input[2], directions);
     State currentCap(input[0], input[1], input[2], directions);
@@ -276,6 +278,7 @@ void solve(vector<int> input){
     
     //call BFS for all the given peramaters
     //then print the output;
+    //error: could not convert ‘map’ from ‘bool**’ to ‘std::vector<std::__cxx11::basic_string<char> >’
     finish = paths(begin,currentCap,finish,map);
     finish.out(); 
     //deletes the visted array
