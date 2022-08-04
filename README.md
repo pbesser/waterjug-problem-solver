@@ -1,1 +1,1 @@
-# waterjug
+# waterjug problem solver
